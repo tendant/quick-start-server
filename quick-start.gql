@@ -1,0 +1,7 @@
+# register user1
+POST http://localhost:3000/graphql
+Content-Type: application/json
+
+{
+  "query": "query { hello }"
+}
