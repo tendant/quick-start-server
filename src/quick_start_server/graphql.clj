@@ -23,9 +23,12 @@
         ;; (log/debugf "default-resolver: type-name:%s, field-name:%s." type-name field-name)
         (get parent (graphql-field->keyword field-name))))))
 
+(defn hello-fn [context parent args]
+  "world")
+
 (defn quick-start-resolver [type-name field-name]
   (get-in {:Mutation {}
-           :Query {}}
+           :Query {:hello hello-fn}}
           [(keyword type-name) (keyword field-name)]
           (if (not (or (str/starts-with? field-name "__")
                        (str/starts-with? type-name "__")))
