@@ -26,9 +26,25 @@
 (defn hello-fn [context parent args]
   "world")
 
+
+(def clicks (atom 0))
+
+(defn on-click-fn [context parent args]
+  ;; increase count by 1
+  (swap! clicks inc)
+  @clicks)
+
+(defn clicks-fn [context parent args]
+  @clicks)
+
+(defn name-fn [context parent args]
+  (str "This is a test name" (rand-int 1000)))
+
 (defn quick-start-resolver [type-name field-name]
-  (get-in {:Mutation {}
-           :Query {:hello hello-fn}}
+  (get-in {:Mutation {:onClick on-click-fn}
+           :Query {:hello hello-fn
+                   :clicks clicks-fn
+                   :name name-fn}}
           [(keyword type-name) (keyword field-name)]
           (if (not (or (str/starts-with? field-name "__")
                        (str/starts-with? type-name "__")))

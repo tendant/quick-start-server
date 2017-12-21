@@ -1,8 +1,12 @@
 type Query {
   hello: String
+  name: String
+  clicks: Int
+  thisIsGraphqlField: String  # :this-is-graphql-field
 }
 
 type Mutation {
+  onClick: Int
 }
 
 schema {
