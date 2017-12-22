@@ -3,10 +3,16 @@ type Query {
   name: String
   clicks: Int
   thisIsGraphqlField: String  # :this-is-graphql-field
+  cameras(cursor: String, limit: Int): [Camera]
 }
 
 type Mutation {
   onClick: Int
+}
+
+type Camera {
+  id: String!
+  name: String
 }
 
 schema {
