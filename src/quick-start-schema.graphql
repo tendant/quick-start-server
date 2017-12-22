@@ -13,6 +13,7 @@ type Mutation {
 type Camera {
   id: String!
   name: String
+  createdAt: Int
 }
 
 schema {

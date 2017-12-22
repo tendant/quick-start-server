@@ -11,7 +11,8 @@
                  [graphql-clj "0.2.6"]
                  [com.taoensso/timbre "4.10.0"]
                  [thinktopic/wharf "0.2.0"]
-                 [yogthos/config "0.9"]]
+                 [yogthos/config "0.9"]
+                 [clojure.java-time "0.3.0"]]
   :plugins [[lein-ring "0.9.7"]]
   :ring {:handler quick-start-server.handler/app}
   :profiles
